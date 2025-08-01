@@ -127,6 +127,128 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
+        .revolutionary-features {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .revolutionary-features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+        }
+        
+        .revolutionary-features .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .revolutionary-features h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #0ea5e9, #3b82f6, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 3rem;
+        }
+        
+        .revolutionary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .revolutionary-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .revolutionary-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .revolutionary-card:hover::before {
+            left: 100%;
+        }
+        
+        .revolutionary-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            border-color: rgba(14, 165, 233, 0.5);
+        }
+        
+        .revolutionary-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        
+        .revolutionary-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #0ea5e9;
+        }
+        
+        .revolutionary-desc {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .revolutionary-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .highlight {
+            background: linear-gradient(45deg, #06b6d4, #0891b2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .subtext {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            font-style: italic;
+        }
+
         .features {
             background: white;
             padding: 100px 0;
@@ -280,6 +402,19 @@
             .hero-content p {
                 font-size: 1.1rem;
             }
+            
+            .revolutionary-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .revolutionary-card {
+                padding: 1.5rem;
+            }
+            
+            .revolutionary-features h2 {
+                font-size: 2.2rem;
+            }
         }
     </style>
 </head>
@@ -290,6 +425,7 @@
                 <img src="logo-header.png" alt="PourSight AI Logo">
             </div>
             <ul class="nav-links">
+                <li><a href="#revolutionary">Revolutionary</a></li>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#technology">Technology</a></li>
                 <li><a href="#metrics">Metrics</a></li>
@@ -303,7 +439,56 @@
             <div class="hero-content">
                 <img src="logo-hero.png" alt="PourSight AI" class="hero-logo">
                 <p>Revolutionary Instant Payment System for the Hospitality Industry</p>
-                <a href="#features" class="cta-button">Discover More</a>
+                <a href="#revolutionary" class="cta-button">Discover More</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="revolutionary" class="revolutionary-features">
+        <div class="container">
+            <h2>Revolutionary Solutions</h2>
+            <p class="section-subtitle">Four groundbreaking innovations that transform your business</p>
+            
+            <div class="revolutionary-grid">
+                <div class="revolutionary-card pricing">
+                    <div class="revolutionary-icon">💰</div>
+                    <h3>Revolutionary Pricing</h3>
+                    <p class="revolutionary-desc">Your least expensive spirit drink price is the daily cost</p>
+                    <div class="revolutionary-details">
+                        <span class="highlight">Affordable Innovation</span>
+                        <span class="subtext">Cost-effective deployment</span>
+                    </div>
+                </div>
+                
+                <div class="revolutionary-card payment">
+                    <div class="revolutionary-icon">⚡</div>
+                    <h3>Revolutionary Instant Payment System</h3>
+                    <p class="revolutionary-desc">APP invoice 1 second after pour</p>
+                    <div class="revolutionary-details">
+                        <span class="highlight">Lightning Fast</span>
+                        <span class="subtext">Instant billing automation</span>
+                    </div>
+                </div>
+                
+                <div class="revolutionary-card saas">
+                    <div class="revolutionary-icon">📊</div>
+                    <h3>Revolutionary SAAS Inventory Management</h3>
+                    <p class="revolutionary-desc">Predictive restocking, purchasing, stock out alerts, instant event invoices</p>
+                    <div class="revolutionary-details">
+                        <span class="highlight">Smart Automation</span>
+                        <span class="subtext">AI-powered inventory control</span>
+                    </div>
+                </div>
+                
+                <div class="revolutionary-card media">
+                    <div class="revolutionary-icon">🎆</div>
+                    <h3>Revolutionary Immersive Media Light Shows</h3>
+                    <p class="revolutionary-desc">Cloud configurable location/brand specific LED, 2D/3D, Holograph, Drone shows</p>
+                    <div class="revolutionary-details">
+                        <span class="highlight">Immersive Experience</span>
+                        <span class="subtext">Next-gen entertainment</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
