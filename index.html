@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PourSight AI - Instant Payment System</title>
+    <title>BottleBanker - Because Every Ounce Matters</title>
     <style>
         * {
             margin: 0;
@@ -14,8 +14,8 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 50%, #6366f1 100%);
+            color: #2c3e50;
+            background: linear-gradient(135deg, #ffffff 0%, #f5f7fa 50%, #e8eef5 100%);
         }
 
         .container {
@@ -25,13 +25,15 @@
         }
 
         header {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
             padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            border-bottom: 1px solid rgba(100, 149, 237, 0.1);
         }
 
         nav {
@@ -41,22 +43,9 @@
         }
 
         .logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo img {
-            height: 80px;
-            width: auto;
-            max-width: 300px;
-            max-height: 80px;
-            object-fit: contain;
-            filter: brightness(0) invert(1);
-            transition: all 0.3s ease;
-        }
-        
-        .logo img:hover {
-            filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255,255,255,0.5));
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #6495ed;
         }
 
         .nav-links {
@@ -66,13 +55,14 @@
         }
 
         .nav-links a {
-            color: white;
+            color: #5a6c7d;
             text-decoration: none;
-            transition: opacity 0.3s;
+            transition: color 0.3s;
+            font-weight: 500;
         }
 
         .nav-links a:hover {
-            opacity: 0.8;
+            color: #6495ed;
         }
 
         .hero {
@@ -80,288 +70,428 @@
             display: flex;
             align-items: center;
             text-align: center;
-            color: white;
-            padding-top: 80px;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
-        }
-        
-        .hero-logo {
-            max-width: 600px;
-            max-height: 200px;
-            width: 100%;
-            height: auto;
-            margin-bottom: 2rem;
-            object-fit: contain;
-            filter: brightness(0) invert(1) drop-shadow(0 5px 15px rgba(0,0,0,0.3));
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero-content p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease 0.2s both;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(45deg, #06b6d4, #0891b2);
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-            animation: fadeInUp 1s ease 0.4s both;
-            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        .revolutionary-features {
-            background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
-            color: white;
-            padding: 100px 0;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 50%, #e1e8f0 100%);
+            padding-top: 100px;
             position: relative;
-            overflow: hidden;
         }
         
-        .revolutionary-features::before {
+        .hero::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 40% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+            background: radial-gradient(circle at 30% 50%, rgba(100, 149, 237, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 70%, rgba(135, 206, 235, 0.08) 0%, transparent 50%);
+            pointer-events: none;
         }
         
-        .revolutionary-features .container {
+        .hero-content {
             position: relative;
             z-index: 1;
         }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            font-weight: 700;
+            animation: fadeInUp 1s ease;
+        }
         
-        .revolutionary-features h2 {
+        .tagline {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #6495ed;
+            font-weight: 600;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            color: #5a6c7d;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+        
+        .patent-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #fff3cd 0%, #ffe8a1 100%);
+            color: #856404;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border: 2px solid #ffc107;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.5s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #6495ed 0%, #4169e1 100%);
+            color: white;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(100, 149, 237, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(100, 149, 237, 0.4);
+        }
+        
+        .cta-button-secondary {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            color: #6495ed;
+            border: 2px solid #6495ed;
+        }
+        
+        .cta-button-secondary:hover {
+            background: linear-gradient(135deg, #6495ed 0%, #4169e1 100%);
+            color: white;
+        }
+
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .section-white {
+            background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%);
+        }
+        
+        .section-light {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        }
+
+        .section h2 {
             text-align: center;
             font-size: 2.8rem;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, #0ea5e9, #3b82f6, #6366f1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #2c3e50;
+            font-weight: 700;
         }
         
         .section-subtitle {
             text-align: center;
             font-size: 1.2rem;
-            opacity: 0.9;
+            color: #5a6c7d;
             margin-bottom: 3rem;
-        }
-        
-        .revolutionary-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .revolutionary-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .revolutionary-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            transition: left 0.6s ease;
-        }
-        
-        .revolutionary-card:hover::before {
-            left: 100%;
-        }
-        
-        .revolutionary-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-            border-color: rgba(14, 165, 233, 0.5);
-        }
-        
-        .revolutionary-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-        
-        .revolutionary-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: #0ea5e9;
-        }
-        
-        .revolutionary-desc {
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-            opacity: 0.9;
-        }
-        
-        .revolutionary-details {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        
-        .highlight {
-            background: linear-gradient(45deg, #06b6d4, #0891b2);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 25px;
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
-        
-        .subtext {
-            font-size: 0.85rem;
-            opacity: 0.7;
-            font-style: italic;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .features {
-            background: white;
-            padding: 100px 0;
-        }
-
-        .features h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #333;
-        }
-
-        .features-grid {
+        .revolution-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            margin-top: 3rem;
         }
-
-        .feature-card {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            padding: 2rem;
-            border-radius: 15px;
+        
+        .revolution-card {
+            background: white;
+            border: 1px solid rgba(100, 149, 237, 0.15);
+            border-radius: 20px;
+            padding: 2.5rem;
             text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid rgba(14, 165, 233, 0.1);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
         }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        
+        .revolution-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 15px 40px rgba(100, 149, 237, 0.15);
+            border-color: rgba(100, 149, 237, 0.3);
         }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .feature-card h3 {
+        
+        .revolution-card h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            color: #333;
+            color: #6495ed;
+            font-weight: 600;
+        }
+        
+        .revolution-card p {
+            color: #5a6c7d;
+            line-height: 1.7;
         }
 
-        .feature-card p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        .tech-stack {
-            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-            color: white;
-            padding: 100px 0;
-        }
-
-        .tech-grid {
+        .problems-solutions {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .problem-box, .solution-box {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
+        
+        .problem-box {
+            border-left: 5px solid #dc3545;
+        }
+        
+        .solution-box {
+            border-left: 5px solid #28a745;
+        }
+        
+        .problem-box h3 {
+            color: #dc3545;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .solution-box h3 {
+            color: #28a745;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .problem-box ul, .solution-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .problem-box li, .solution-box li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #5a6c7d;
+        }
+        
+        .problem-box li:before {
+            content: "×";
+            position: absolute;
+            left: 0;
+            color: #dc3545;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .solution-box li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .impact {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(100, 149, 237, 0.05);
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
-
-        .tech-item {
-            background: rgba(255,255,255,0.1);
-            padding: 1.5rem;
-            border-radius: 10px;
-            backdrop-filter: blur(5px);
+        
+        .team-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(100, 149, 237, 0.1);
+            transition: all 0.3s;
         }
-
-        .tech-item h4 {
-            color: #0ea5e9;
+        
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(100, 149, 237, 0.12);
+        }
+        
+        .team-card h4 {
+            color: #6495ed;
+            font-size: 1.3rem;
             margin-bottom: 0.5rem;
         }
-
-        .accuracy-metrics {
-            background: white;
-            padding: 100px 0;
+        
+        .team-card .role {
+            color: #8899aa;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+        
+        .team-card p {
+            color: #5a6c7d;
+            line-height: 1.7;
         }
 
-        .metrics-table {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin-top: 2rem;
+        .roi-section {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            margin-top: 3rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
         }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            padding: 20px;
+        
+        .roi-section h3 {
+            color: #2e7d32;
+            font-size: 2rem;
+            margin-bottom: 2rem;
             text-align: center;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .roi-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .roi-stat {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .roi-stat .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2e7d32;
+            margin-bottom: 0.5rem;
+        }
+        
+        .roi-stat .label {
+            color: #5a6c7d;
+            font-size: 0.95rem;
         }
 
-        th {
-            background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 100%);
-            color: white;
+        .timeline {
+            position: relative;
+            margin-top: 3rem;
+        }
+        
+        .timeline-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            border-left: 4px solid #6495ed;
+            transition: all 0.3s;
+        }
+        
+        .timeline-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 25px rgba(100, 149, 237, 0.12);
+        }
+        
+        .timeline-year {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #6495ed;
+            margin-bottom: 1rem;
+        }
+        
+        .timeline-item ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .timeline-item li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #5a6c7d;
+        }
+        
+        .timeline-item li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #6495ed;
             font-weight: bold;
         }
 
-        tr:hover {
-            background: rgba(14, 165, 233, 0.1);
+        .investment-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            margin-top: 3rem;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .investment-box h3 {
+            color: #1565c0;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .investment-amount {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #0d47a1;
+            margin: 1rem 0;
+        }
+        
+        .investment-details {
+            color: #5a6c7d;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .acquirers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .acquirer-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .acquirer-card h5 {
+            color: #6495ed;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .acquirer-card p {
+            color: #5a6c7d;
+            font-size: 0.9rem;
         }
 
         footer {
-            background: #1e293b;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
             color: white;
             text-align: center;
-            padding: 2rem 0;
+            padding: 3rem 0;
+        }
+        
+        footer p {
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
         }
 
         @keyframes fadeInUp {
@@ -380,40 +510,26 @@
                 font-size: 2.5rem;
             }
             
-            .hero-logo {
-                max-width: 450px;
-                max-height: 150px;
-            }
-            
-            .logo img {
-                height: 60px;
-                max-width: 200px;
-                max-height: 60px;
+            .tagline {
+                font-size: 1.5rem;
             }
             
             .nav-links {
                 display: none;
             }
             
-            .features-grid {
+            .problems-solutions {
                 grid-template-columns: 1fr;
             }
             
-            .hero-content p {
-                font-size: 1.1rem;
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
             }
             
-            .revolutionary-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .revolutionary-card {
-                padding: 1.5rem;
-            }
-            
-            .revolutionary-features h2 {
-                font-size: 2.2rem;
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
             }
         }
     </style>
@@ -421,15 +537,13 @@
 <body>
     <header>
         <nav class="container">
-            <div class="logo">
-                <img src="logo-header.png" alt="PourSight AI Logo">
-            </div>
+            <div class="logo">BottleBanker™</div>
             <ul class="nav-links">
-                <li><a href="#revolutionary">Revolutionary</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#technology">Technology</a></li>
-                <li><a href="#metrics">Metrics</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#revolution">The Revolution</a></li>
+                <li><a href="#solutions">Solutions</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#financials">Financials</a></li>
+                <li><a href="#investment">Investment</a></li>
             </ul>
         </nav>
     </header>
@@ -437,179 +551,334 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <img src="logo-hero.png" alt="PourSight AI" class="hero-logo">
-                <p>Revolutionary Instant Payment System for the Hospitality Industry</p>
-                <a href="#revolutionary" class="cta-button">Discover More</a>
+                <h1>BottleBanker™</h1>
+                <p class="tagline">Because Every Ounce Matters</p>
+                <p>Revolutionizing On-Premise Beverage Profitability</p>
+                <div class="patent-badge">7 Patents Pending • Protected Innovation</div>
+                <div class="cta-buttons">
+                    <a href="#revolution" class="cta-button">Discover the Revolution</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="revolutionary" class="revolutionary-features">
+    <section id="revolution" class="section section-white">
         <div class="container">
-            <h2>Revolutionary Solutions</h2>
-            <p class="section-subtitle">Four groundbreaking innovations that transform your business</p>
+            <h2>The Revolution in On-Premise Beverage Profitability</h2>
+            <p class="section-subtitle">BottleBanker isn't another tool—it's the infrastructure of the new on-premise era</p>
             
-            <div class="revolutionary-grid">
-                <div class="revolutionary-card pricing">
-                    <div class="revolutionary-icon">💰</div>
-                    <h3>Revolutionary Pricing</h3>
-                    <p class="revolutionary-desc">Your least expensive spirit drink price is the daily cost</p>
-                    <div class="revolutionary-details">
-                        <span class="highlight">Affordable Innovation</span>
-                        <span class="subtext">Cost-effective deployment</span>
-                    </div>
+            <div class="revolution-grid">
+                <div class="revolution-card">
+                    <h3>🔒 Protected Breakthrough</h3>
+                    <p>Seven patents fence off the BottleBanker platform—hardware and AI that follow every bottle, track all inventory, and analyze every pour, converting each event into instant, verified revenue.</p>
                 </div>
                 
-                <div class="revolutionary-card payment">
-                    <div class="revolutionary-icon">⚡</div>
-                    <h3>Revolutionary Instant Payment System</h3>
-                    <p class="revolutionary-desc">APP invoice 1 second after pour</p>
-                    <div class="revolutionary-details">
-                        <span class="highlight">Lightning Fast</span>
-                        <span class="subtext">Instant billing automation</span>
-                    </div>
+                <div class="revolution-card">
+                    <h3>📈 Scalable Model</h3>
+                    <p>Rapid rollout through global partners with a vested interest managing all operations, enabling fast adoption and exponential growth.</p>
                 </div>
                 
-                <div class="revolutionary-card saas">
-                    <div class="revolutionary-icon">📊</div>
-                    <h3>Revolutionary SAAS Inventory Management</h3>
-                    <p class="revolutionary-desc">Predictive restocking, purchasing, stock out alerts, instant event invoices</p>
-                    <div class="revolutionary-details">
-                        <span class="highlight">Smart Automation</span>
-                        <span class="subtext">AI-powered inventory control</span>
-                    </div>
-                </div>
-                
-                <div class="revolutionary-card media">
-                    <div class="revolutionary-icon">🎆</div>
-                    <h3>Revolutionary Immersive Media Light Shows</h3>
-                    <p class="revolutionary-desc">Cloud configurable location/brand specific LED, 2D/3D, Holograph, Drone shows</p>
-                    <div class="revolutionary-details">
-                        <span class="highlight">Immersive Experience</span>
-                        <span class="subtext">Next-gen entertainment</span>
-                    </div>
+                <div class="revolution-card">
+                    <h3>🏆 Proven Innovator</h3>
+                    <p>From owning three major NYC restaurants came the insight that drove nine legacy beverage patents and three successive technologies in this field.</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="features" class="features">
-        <div class="container">
-            <h2>Intelligent Bar Management System</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📡</div>
-                    <h3>Sensor-Driven Detection</h3>
-                    <p>Advanced BLE sensors with accelerometer and gyroscope measure tilt angles, duration, and micro-movements in real-time for precise drink identification.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">👤</div>
-                    <h3>Bartender Recognition</h3>
-                    <p>Unique signature profiling captures micro-timing, hand movements, and pour rhythms to identify individual bartenders with high accuracy.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Smart Drink Matching</h3>
-                    <p>AI-powered engine combines ingredient data, timing sequences, and volume estimates to accurately identify drinks with confidence scoring.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">💳</div>
-                    <h3>Instant Billing</h3>
-                    <p>Seamless customer payment through NFC, QR codes, or mobile wallets with immediate bill generation and receipt management.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🔄</div>
-                    <h3>POS Integration</h3>
-                    <p>Complete reconciliation with existing POS systems, learning capabilities, and discrepancy reporting for accurate inventory management.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>Analytics Dashboard</h3>
-                    <p>Real-time insights on pour volumes, shrinkage analysis, POS match rates, and comprehensive bartender performance metrics.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="technology" class="tech-stack">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: 1rem;">Technology Stack</h2>
-            <p style="text-align: center; opacity: 0.9; margin-bottom: 3rem;">Built with cutting-edge technologies for maximum reliability and performance</p>
             
-            <div class="tech-grid">
-                <div class="tech-item">
-                    <h4>Hardware</h4>
-                    <p>BLE sensors, accelerometers, gyroscopes, embedded C programming</p>
-                </div>
-                <div class="tech-item">
-                    <h4>Machine Learning</h4>
-                    <p>Python, PyTorch, TensorFlow, Scikit-learn for AI-powered recognition</p>
-                </div>
-                <div class="tech-item">
-                    <h4>Backend</h4>
-                    <p>REST APIs, SQL/NoSQL databases, real-time stream processing</p>
-                </div>
-                <div class="tech-item">
-                    <h4>Mobile & Payments</h4>
-                    <p>React Native, Flutter, Stripe API, Apple Pay, Google Pay integration</p>
-                </div>
-                <div class="tech-item">
-                    <h4>Web Dashboard</h4>
-                    <p>React, Node.js, Django, PostgreSQL, MongoDB for analytics</p>
-                </div>
-                <div class="tech-item">
-                    <h4>Cloud Infrastructure</h4>
-                    <p>Firebase, Supabase, scalable cloud deployment</p>
-                </div>
+            <div style="text-align: center; margin-top: 4rem; padding: 2rem; background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border-radius: 20px;">
+                <h3 style="color: #2e7d32; font-size: 2rem; margin-bottom: 1rem;">The Result</h3>
+                <p style="font-size: 1.3rem; color: #2c3e50; font-weight: 600;">Every ounce of spirits and wine tracked. Every pour billed. Every brand engagement measured.</p>
             </div>
         </div>
     </section>
 
-    <section id="metrics" class="accuracy-metrics">
+    <section id="solutions" class="section section-light">
         <div class="container">
-            <h2 style="text-align: center;">Accuracy Performance Targets</h2>
-            <p style="text-align: center; margin-bottom: 2rem; color: #666;">System accuracy improves with training data volume</p>
+            <h2>Problems & Solutions</h2>
+            <p class="section-subtitle">BottleBanker closes every gap and increases sales</p>
             
-            <div class="metrics-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Target Accuracy</th>
-                            <th>Drink Pours Required</th>
-                            <th>Bartender Pours Required</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>80%</strong></td>
-                            <td>10,000</td>
-                            <td>500 per bartender</td>
-                        </tr>
-                        <tr>
-                            <td><strong>90%</strong></td>
-                            <td>30,000</td>
-                            <td>2,000 per bartender</td>
-                        </tr>
-                        <tr>
-                            <td><strong>95%+</strong></td>
-                            <td>100,000</td>
-                            <td>3,000 per bartender</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="problems-solutions">
+                <div class="problem-box">
+                    <h3>The Problem</h3>
+                    <p style="margin-bottom: 1rem;">The on-premise spirits and wine industry loses profit through:</p>
+                    <ul>
+                        <li>Pilfered sales</li>
+                        <li>Pilfered costs</li>
+                        <li>Lack of analytics</li>
+                        <li>Poor use of time</li>
+                        <li>Legacy marketing</li>
+                        <li>Stagnant sales</li>
+                    </ul>
+                    <div class="impact" style="color: #dc3545;">
+                        <strong>Impact:</strong> Forfeited profit, low profit margins, abusive costs, missed opportunity
+                    </div>
+                </div>
+                
+                <div class="solution-box">
+                    <h3>The Solution</h3>
+                    <p style="margin-bottom: 1rem;">BottleBanker delivers:</p>
+                    <ul>
+                        <li>AI marketing: brand specific and measurable upsell</li>
+                        <li>AI training: bartender specific behavioral prompts</li>
+                        <li>Faster, reliable service, intelligence-based marketing</li>
+                        <li>AI management: reporting location and motion of every bottle and pour</li>
+                        <li>AI invoicing: instantaneous, verified recipes and accountability</li>
+                        <li>AI analytics: on demand inventory, restocking, purchasing</li>
+                    </ul>
+                    <div class="impact" style="color: #28a745;">
+                        <strong>Impact:</strong> Increased sales, increased profit margins, lower cost %, better service
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer id="contact">
+    <section id="roi" class="section section-white">
         <div class="container">
-            <p>&copy; 2025 PourSight AI. Revolutionizing hospitality through intelligent automation.</p>
-            <p>Contact us for implementation and partnership opportunities.</p>
+            <h2>Customer ROI</h2>
+            <p class="section-subtitle">Proven value for on-premise venues</p>
+            
+            <div class="roi-section">
+                <h3>Combined Spirits & Wine Performance</h3>
+                <div class="roi-stats">
+                    <div class="roi-stat">
+                        <div class="number">$960K</div>
+                        <div class="label">Total Annual Sales<br>(Spirits $50K + Wine $30K monthly)</div>
+                    </div>
+                    <div class="roi-stat">
+                        <div class="number">$96K</div>
+                        <div class="label">Annual Savings<br>Reduced theft, abuse, costs + efficiencies</div>
+                    </div>
+                    <div class="roi-stat">
+                        <div class="number">$4K</div>
+                        <div class="label">Data Revenue<br>Brand and data-reseller programs</div>
+                    </div>
+                    <div class="roi-stat">
+                        <div class="number">13×</div>
+                        <div class="label">ROI Multiple<br>$96K savings ÷ $7.2K annual fee</div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2rem; background: white; padding: 2rem; border-radius: 15px; text-align: center;">
+                    <p style="color: #2c3e50; font-size: 1.2rem; margin-bottom: 1rem;"><strong>BottleBanker Income per Venue:</strong></p>
+                    <p style="color: #5a6c7d;">Software, SaaS, AI: <strong style="color: #6495ed;">$7,200/year</strong></p>
+                    <p style="color: #5a6c7d;">Data, LED & Media Charges: <strong style="color: #6495ed;">$4,000/year</strong></p>
+                    <p style="color: #2e7d32; font-size: 1.3rem; font-weight: 700; margin-top: 1rem;">Total: $11,200 Annual Recurring</p>
+                    <p style="color: #8899aa; font-size: 0.9rem; margin-top: 1rem;"><em>Hardware cost: $0 to venue (funded hardware, self-install)</em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="section section-light">
+        <div class="container">
+            <h2>Management Team</h2>
+            <p class="section-subtitle">Proven leadership with startup experience and industry expertise</p>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <h4>David Teller</h4>
+                    <div class="role">Founder / Inventor</div>
+                    <p>9 legacy patents, 7 new provisional patents, 3 tech startups in same field. Former NYC restaurant group owner/operator with deep operational insight.</p>
+                </div>
+                
+                <div class="team-card">
+                    <h4>Peter Temling</h4>
+                    <div class="role">CFO - Board Member</div>
+                    <p>Authored hotel industry audit rules, COO Carnival partnership, Senior consultant Hilton. CFO in 2 of David's startups with proven cost discipline.</p>
+                </div>
+                
+                <div class="team-card">
+                    <h4>Geovanny Tejeda</h4>
+                    <div class="role">CTO - Board Member</div>
+                    <p>Co-inventor, Senior Developer at AI Company, Former UN Software Platform Manager. CTO in 2 of David's startups with technical excellence.</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 3rem; padding: 2rem; background: white; border-radius: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);">
+                <h3 style="color: #6495ed; text-align: center; margin-bottom: 1.5rem;">Strategic Approach</h3>
+                <p style="color: #5a6c7d; text-align: center; line-height: 1.8;">
+                    Minimalist overhead leverages distribution partners already embedded in the global on-premise spirits and wine market. The team is startup-smart, using freelance networks and fixed-cost contracts to stay lean while scaling. Value is preserved as global rollout proceeds, with all variable costs carried by partners.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="company" class="section section-white">
+        <div class="container">
+            <h2>Company Overview</h2>
+            <p class="section-subtitle">Virtual • Agile • Minimal Overhead</p>
+            
+            <div class="revolution-grid">
+                <div class="revolution-card">
+                    <h3>💡 Core Focus</h3>
+                    <p><strong>Innovation & IP:</strong> Continuous patent creation<br>
+                    <strong>Development:</strong> In-house design with outsourced manufacturing<br>
+                    <strong>Distribution:</strong> Through exclusive regional partners<br>
+                    <strong>Customer Autonomy:</strong> Self-installation, AI-guided setup</p>
+                </div>
+                
+                <div class="revolution-card">
+                    <h3>💰 Revenue Model</h3>
+                    <p><strong>SaaS subscriptions</strong> and modular product-suite plans<br>
+                    <strong>Hardware sales:</strong> Sensors and gateways<br>
+                    <strong>Immersive Media:</strong> Pay-per-use activations<br>
+                    <strong>Data analytics:</strong> Performance subscriptions</p>
+                </div>
+                
+                <div class="revolution-card">
+                    <h3>🌍 Market Opportunity</h3>
+                    <p><strong>311,000</strong> eligible US venues<br>
+                    <strong>~500,000</strong> potential installations (multi-bar venues)<br>
+                    <strong>2× larger</strong> international market<br>
+                    <strong>Bars, Restaurants, Hotels, Casinos, Events</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="financials" class="section section-light">
+        <div class="container">
+            <h2>Financial Projections & Timeline</h2>
+            <p class="section-subtitle">Conservative growth targeting 3% US market penetration by 2030</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2024-2025</div>
+                    <ul>
+                        <li>Beta installation</li>
+                        <li>Core engineering completed</li>
+                        <li>Production selected</li>
+                        <li>Provisional Patents filed</li>
+                        <li>Round one funding</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2026</div>
+                    <ul>
+                        <li>Beta installs - Product perfected</li>
+                        <li>Patents filed, first examination</li>
+                        <li>Partner vetting, negotiations</li>
+                        <li>25 installations</li>
+                        <li>Round two funding, if needed</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2027</div>
+                    <ul>
+                        <li>Partners selected, contracts</li>
+                        <li>Patents Granted, PCT filed</li>
+                        <li>Corporation testing</li>
+                        <li>Retail, Consumer, Wine Cellar APPs developed</li>
+                        <li>275 new installations (300 cumulative)</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2028</div>
+                    <ul>
+                        <li>Corporate roll out begins</li>
+                        <li>Launch Open Source and Retail models</li>
+                        <li>Launch affiliates for small venues</li>
+                        <li>Global distribution starts</li>
+                        <li>700 new installations (1,000 cumulative)</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2029</div>
+                    <ul>
+                        <li>Accelerated corporate and franchise roll out</li>
+                        <li>Global distribution grows</li>
+                        <li>Affiliate program picks up pace</li>
+                        <li>2,000 new installations (3,000 cumulative)</li>
+                        <li><strong>$17.37M EBITDA</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item" style="border-left-color: #28a745;">
+                    <div class="timeline-year" style="color: #28a745;">2030 - Exit Target</div>
+                    <ul>
+                        <li>6,000 new installations (9,000 cumulative)</li>
+                        <li>Tax Compliance partner tests</li>
+                        <li>PCT members granted</li>
+                        <li><strong style="color: #28a745; font-size: 1.3rem;">$52.11M EBITDA</strong></li>
+                        <li><strong style="color: #28a745;">Strategic Acquisition</strong></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="margin-top: 3rem; background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);">
+                <h3 style="color: #6495ed; text-align: center; margin-bottom: 1.5rem;">2030 Financial Snapshot</h3>
+                <div class="roi-stats">
+                    <div class="roi-stat">
+                        <div class="number">$100.8M</div>
+                        <div class="label">Total Recurring Income</div>
+                    </div>
+                    <div class="roi-stat">
+                        <div class="number">$57.9M</div>
+                        <div class="label">Total Income (with hardware)</div>
+                    </div>
+                    <div class="roi-stat">
+                        <div class="number">$52.1M</div>
+                        <div class="label">EBITDA</div>
+                    </div>
+                    <div class="roi-stat">
+                        <div class="number">9,000</div>
+                        <div class="label">Cumulative Installations</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="investment" class="section section-white">
+        <div class="container">
+            <h2>Investment Opportunity</h2>
+            
+            <div class="investment-box">
+                <h3>Seeking Investment</h3>
+                <div class="investment-amount">$300,000</div>
+                <div class="investment-details">
+                    for 10% post-money equity
+                </div>
+                <p style="color: #5a6c7d; max-width: 700px; margin: 0 auto; line-height: 1.8;">
+                    Funds will support patent prosecutions, product refinement, management capacity, and partner development. The structure keeps overhead low and growth partner-funded, ensuring disciplined use of capital and sustainable expansion.
+                </p>
+            </div>
+            
+            <div style="margin-top: 3rem;">
+                <h3 style="text-align: center; color: #2c3e50; margin-bottom: 2rem;">Exit Path: Potential Acquirers 2029/2030</h3>
+                <div class="acquirers">
+                    <div class="acquirer-card">
+                        <h5>Spirit & Wine Giants</h5>
+                        <p>Diageo, Pernod Ricard, Bacardi, Southern Wine<br><br>
+                        <strong>Rationale:</strong> Unprecedented real-time data, branded media activation</p>
+                    </div>
+                    
+                    <div class="acquirer-card">
+                        <h5>POS & Technology Leaders</h5>
+                        <p>Toast, Lightspeed, Square, NCR, Oracle, Sensormatic<br><br>
+                        <strong>Rationale:</strong> New income stream, differentiator, leverage installed base</p>
+                    </div>
+                    
+                    <div class="acquirer-card">
+                        <h5>Strategic Investors</h5>
+                        <p>Private Equity, Strategic SaaS Investors, AI Funds<br><br>
+                        <strong>Rationale:</strong> Recurring revenue model + patent moat</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p style="font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem;">BottleBanker™</p>
+            <p>Because Every Ounce Matters</p>
+            <p>&copy; 2024 BottleBanker. Patents Pending. All Rights Reserved.</p>
+            <p style="margin-top: 1rem; opacity: 0.7;">Revolutionizing On-Premise Beverage Profitability</p>
         </div>
     </footer>
 
@@ -628,18 +897,6 @@
             });
         });
 
-        // Add scroll effect to header
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.color = '#333';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.1)';
-                header.style.color = 'white';
-            }
-        });
-
         // Intersection Observer for animations
         const observerOptions = {
             threshold: 0.1,
@@ -655,8 +912,8 @@
             });
         }, observerOptions);
 
-        // Observe feature cards
-        document.querySelectorAll('.feature-card').forEach(card => {
+        // Observe cards
+        document.querySelectorAll('.revolution-card, .team-card, .timeline-item, .acquirer-card').forEach(card => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(30px)';
             card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
